@@ -1,0 +1,29 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class InterestsFactory extends Factory
+{
+    /**
+     * @var array|string[]
+     */
+    protected $interests = [
+        'books',
+        'programming',
+        'music',
+    ];
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'title' => $this->interests[rand(0, 2)] ?? 'default',
+        ];
+    }
+}
