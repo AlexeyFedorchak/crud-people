@@ -61,6 +61,6 @@
         </select>
         </p>
 
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary">Create</button>
     </form>
 @endsection
