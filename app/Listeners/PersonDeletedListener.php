@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Constants\Queue;
 use App\Events\PersonDeleted as Event;
 use App\Jobs\SendEmail;
 use App\Mail\PersonDeleted as Mail;
@@ -17,6 +18,6 @@ class PersonDeletedListener
     public function handle(Event $event)
     {
         SendEmail::dispatch(new Mail($event->person))
-            ->onQueue('email-queue');
+            ->onQueue(Queue::EMAIL_QUEUE);
     }
 }

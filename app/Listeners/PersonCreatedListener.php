@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Constants\Queue;
 use App\Events\PersonCreated as Event;
 use App\Mail\PersonCreated as Mail;
 use App\Jobs\SendEmail;
@@ -17,6 +18,6 @@ class PersonCreatedListener
     public function handle(Event $event)
     {
         SendEmail::dispatch(new Mail($event->person))
-            ->onQueue('email-queue');
+            ->onQueue(Queue::EMAIL_QUEUE);
     }
 }
